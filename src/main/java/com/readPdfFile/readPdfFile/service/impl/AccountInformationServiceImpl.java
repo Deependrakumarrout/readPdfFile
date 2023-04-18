@@ -105,7 +105,7 @@ public class AccountInformationServiceImpl implements AccountInformationService 
             String[] lines = pageText.split("\\r?\\n");
 
 
-            // Initialize variables to keep track of transaction info
+            // Initialize variables to keep track of account info
             String accountNumber = null;
             String accountType = null;
             String openingDate = null;
@@ -113,16 +113,16 @@ public class AccountInformationServiceImpl implements AccountInformationService 
 
             System.out.println("length: " + lines.length);
 
-            // Search for transaction information
+            // Search for account information
             for (int j = 0; j < lines.length; j++) {
                 String line = lines[j].trim();
 
 
                 String[] parts = line.split(":");
-                if (!line.contains(":")) {  // my logic implementation
+                if (!line.contains(":")) {  
                     System.out.println("trigger");
 
-                    // Check if line contains transaction date
+                    // Check if line contains account date
                     if (line.equalsIgnoreCase("account Information")) {
                         System.out.println("entering account...");
                         String[] transArray = new String[lines.length];
@@ -153,12 +153,7 @@ public class AccountInformationServiceImpl implements AccountInformationService 
                             openingDate = transArray[a];
                             a++;
                             balance = transArray[a];
-
-                            System.out.println("accountNumber: "+accountNumber);
-                            System.out.println("accountType: "+accountType);
-                            System.out.println("openingDate: "+openingDate);
-                            System.out.println("balance: "+balance);
-
+                            
                             Account account = new Account(accountNumber, accountType, openingDate, balance);
                             accounts.add(account);
 
@@ -168,12 +163,12 @@ public class AccountInformationServiceImpl implements AccountInformationService 
 
                     int partsCount = parts.length;
 
-                    System.out.println("parts[0]: " + parts[0]); // only it is giving the first word of the sentences in the pdf.
+                    System.out.println("parts[0]: " + parts[0]); 
 
 
-                    // Check if all transaction info has been found
+                    // Check if all account info has been found
                     if (accountNumber != null && accountType != null && openingDate != null && balance != null) {
-                        // Reset transaction info variables
+                        // Reset account  info variables
                         accountNumber = null;
                         accountType = null;
                         openingDate = null;
