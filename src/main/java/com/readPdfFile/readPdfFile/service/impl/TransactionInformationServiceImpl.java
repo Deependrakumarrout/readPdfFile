@@ -58,15 +58,14 @@ public class TransactionInformationServiceImpl implements TransactionInformation
                     System.out.println("forLoop filePath:" + filePath);
 
                     // Extract transaction info from PDF
-                    List<Transaction> transactions = extractTransactionInfo(file);// what is in file then.
+                    List<Transaction> transactions = extractTransactionInfo(file);
 
-                    System.out.println("transactions: " + transactions); // it has null
+                    System.out.println("transactions: " + transactions);
 
                     // Convert to JSON
                     JSONArray jsonArray = new JSONArray();
                     for (Transaction transaction : transactions) {
-                        JSONObject jsonObj = new JSONObject();// transactionId
-
+                        JSONObject jsonObj = new JSONObject();
                         jsonObj.put("date", transaction.getDate());
                         jsonObj.put("transactionType", transaction.getTransactionType());
                         jsonObj.put("amount", transaction.getAmount());
@@ -140,7 +139,7 @@ public class TransactionInformationServiceImpl implements TransactionInformation
 
 
                 String[] parts = line.split(":");
-                if (!line.contains(":")) {  // my logic implementation
+                if (!line.contains(":")) { 
                     System.out.println("trigger");
 
                     // Check if line contains transaction date
