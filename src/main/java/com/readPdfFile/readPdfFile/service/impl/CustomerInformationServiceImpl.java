@@ -122,7 +122,7 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
                 if (!line.contains(":")) { 
                     System.out.println("trigger");
 
-                    // Check if line contains transaction date
+                    // Check if line contains customer date
                     if (line.equalsIgnoreCase("customer Information")) {
                         System.out.println("entering customer...");
                         String[] transArray = new String[lines.length];
@@ -140,7 +140,7 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
                             }
                             transArray[count] = parts[1];
 
-                            count++; //8
+                            count++; 
 
                         }
 
@@ -155,14 +155,7 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
                             phone = transArray[a];
                             a++;
                             email = transArray[a];
-
-                            System.out.println("name: "+name);
-                            System.out.println("address: "+address);
-                            System.out.println("city: "+city);
-                            System.out.println("phone: "+phone);
-                            System.out.println("email: "+email);
-
-
+                            
                             Customer customer = new Customer(name, address, city, phone, email);
                             customers.add(customer);
 
@@ -175,9 +168,9 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
                     System.out.println("parts[0]: " + parts[0]); 
 
 
-                    // Check if all transaction info has been found
+                    // Check if all customer info has been found
                     if (name != null && address != null && city != null && phone != null && email != null) {
-                        // Reset transaction info variables
+                        // Reset customer info variables
                         name = null;
                         address = null;
                         city = null;
