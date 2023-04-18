@@ -57,7 +57,7 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
                     // Convert to JSON
                     JSONArray jsonArray = new JSONArray();
                     for (Customer customer : customers) {
-                        JSONObject jsonObj = new JSONObject();// transactionId
+                        JSONObject jsonObj = new JSONObject();
                         jsonObj.put("name", customer.getName());
                         jsonObj.put("address", customer.getAddress());
                         jsonObj.put("city", customer.getCity());
@@ -119,7 +119,7 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
 
 
                 String[] parts = line.split(":");
-                if (!line.contains(":")) {  // my logic implementation
+                if (!line.contains(":")) { 
                     System.out.println("trigger");
 
                     // Check if line contains transaction date
@@ -172,7 +172,7 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
 
                     int partsCount = parts.length;
 
-                    System.out.println("parts[0]: " + parts[0]); // only it is giving the first word of the sentences in the pdf.
+                    System.out.println("parts[0]: " + parts[0]); 
 
 
                     // Check if all transaction info has been found
