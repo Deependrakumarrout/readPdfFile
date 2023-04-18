@@ -165,9 +165,6 @@ public class CustomerInformationServiceImpl implements CustomerInformationServic
 
                     int partsCount = parts.length;
 
-                    System.out.println("parts[0]: " + parts[0]); 
-
-
                     // Check if all customer info has been found
                     if (name != null && address != null && city != null && phone != null && email != null) {
                         // Reset customer info variables
